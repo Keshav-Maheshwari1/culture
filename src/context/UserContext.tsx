@@ -13,7 +13,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const navigate = useNavigate();
 
-  const API_BASE_URL = "http://localhost:3001/api"; // Change this to your API URL
+  const API_BASE_URL = "https://culture-x1i7.onrender.com/api"; // Change this to your API URL
 
   // Login method
   const login = async (email: string, password: string) => {
