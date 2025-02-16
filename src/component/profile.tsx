@@ -11,9 +11,23 @@ type User = {
 const Profile = () => {
   const { getByEmail, deleteUser } = useUserContext();
   const [user, setUser] = useState<User | null>(null);
-
-  const navigate = useNavigate();
   const email = localStorage.getItem("email");
+  const navigate = useNavigate();
+  if (!email) {
+    return (
+      <div className="text-center w-full h-screen flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-semibold text-gray-800">
+          Please Login to Explore India
+        </h1>
+        <button
+          onClick={() => navigate("/")}
+          className="p-2 rounded-sm text-blue-400 bg-amber-300 cursor-pointer mt-4"
+        >
+          Back To Login
+        </button>
+      </div>
+    );
+  }
 
   useEffect(() => {
     if (email) {
