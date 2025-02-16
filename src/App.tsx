@@ -10,6 +10,7 @@ import Heritage from "./pages/Heritage";
 import Vedas from "./pages/Vedas";
 import Monuments from "./pages/Monuments";
 import LoginPage from "./pages/LoginPage";
+import Profile from "./component/profile";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/" element={<LoginPage />} />
             <Route path="/monuments" element={<Monuments />} />
             <Route path="/vedas" element={<Vedas />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </UserProvider>
         <Footer />
