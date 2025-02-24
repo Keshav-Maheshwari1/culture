@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 
@@ -18,8 +18,23 @@ const NavBar = () => {
     navigate(path);
   };
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh"; // Prevents scrolling
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.height = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.height = "";
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className="bg-[#FFF5E1] shadow-md  w-full z-50 ">
+    <header className="bg-[#FFF5E1] shadow-md w-full z-50">
       <nav className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div
@@ -51,7 +66,7 @@ const NavBar = () => {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Overlay */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-40 transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -59,8 +74,9 @@ const NavBar = () => {
         onClick={() => setIsMenuOpen(false)}
       ></div>
 
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`fixed z-50 top-0 right-0 h-full w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
