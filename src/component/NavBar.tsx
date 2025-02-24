@@ -34,7 +34,7 @@ const NavBar = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="bg-[#FFF5E1] shadow-md w-full z-50">
+    <header className="bg-[#FFF5E1] fixed top-0 shadow-md w-full z-50">
       <nav className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div

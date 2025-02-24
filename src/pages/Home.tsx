@@ -5,9 +5,13 @@ import HeritageSites from "@/component/HeritageSites";
 import LegacyTimeline from "@/component/LegacyTimeline";
 import Hero from "@/component/Hero";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Home = () => {
   const email = localStorage.getItem("email");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
   if (!email) {
     return (
@@ -15,7 +19,12 @@ const Home = () => {
         <h1 className="text-4xl font-semibold text-gray-800">
           Please Login to Explore India
         </h1>
-        <button onClick={() => navigate("/")} className="p-2 rounded-sm text-blue-400 bg-amber-300 cursor-pointer mt-4">Back To Login</button>
+        <button
+          onClick={() => navigate("/")}
+          className="p-2 rounded-sm text-blue-400 bg-amber-300 cursor-pointer mt-4"
+        >
+          Back To Login
+        </button>
       </div>
     );
   }
