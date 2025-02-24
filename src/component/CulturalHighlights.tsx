@@ -20,7 +20,7 @@ const CulturalHighlights = () => {
   };
 
   return (
-    <section className="w-screen px-6 py-16 bg-[#FFF3CD]">
+    <section className="w-screen px-6 py-2 md:py-16 bg-[#FFF3CD]">
       <div className="text-center max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#5A3E2B] leading-tight">
           Explore the Richness of Indian Culture

@@ -12,6 +12,15 @@ const Profile = () => {
   const { getByEmail, deleteUser } = useUserContext();
   const [user, setUser] = useState<User | null>(null);
   const email = localStorage.getItem("email");
+  useEffect(() => {
+    if (email) {
+      getByEmail(email)
+        .then((res: User | null) => setUser(res)) // Explicitly type response
+        .catch(() => setUser(null)); // Handle potential errors
+    } else {
+      setUser(null);
+    }
+  }, [email, getByEmail]);
   const navigate = useNavigate();
   if (!email) {
     return (
@@ -28,16 +37,6 @@ const Profile = () => {
       </div>
     );
   }
-
-  useEffect(() => {
-    if (email) {
-      getByEmail(email)
-        .then((res: User | null) => setUser(res)) // Explicitly type response
-        .catch(() => setUser(null)); // Handle potential errors
-    } else {
-      setUser(null);
-    }
-  }, [email, getByEmail]);
 
   const handleLogout = () => {
     if (email) {

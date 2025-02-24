@@ -31,19 +31,19 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <section className="mt-1">
+      <section className="md:mt-1">
         <CulturalHighlights />
       </section>
-      <section className=" my-1">
+      <section className=" md:my-1">
         <LegacyTimeline />
       </section>
-      <section className=" my-1">
+      <section className=" md:my-1">
         <FlavorsOfIndia />
       </section>
-      <section className=" my-1">
+      <section className=" md:my-1">
         <HeritageSites />
       </section>
-      <section className=" my-1">
+      <section className=" md:my-1">
         <FestivalsOfIndia />
       </section>
     </main>
